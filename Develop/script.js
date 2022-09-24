@@ -2,18 +2,6 @@
 var generateBtn = document.querySelector("#generate");
 
 
-var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-var numbers = ['0','1','2','3','4','5','6','7','8','9']
-var specialChar = ['!','@','#','*', '&', '$','%']
-
-var passwordOptions= []
-
-
-// Assignment Code
-
-
-
 
 // Write password to the #password input
 
@@ -25,40 +13,54 @@ function writePassword() {
 }
 
 
-
-
 function generatePassword(){
+// List of characters to use
+var lowerCase = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+var numbers = ['0','1','2','3','4','5','6','7','8','9']
+var specialChar = ['!','@','#','*', '&', '$','%']
+
+// Empty array to collect the user selected characters 
+var passwordOptions = []
   
-  passwordLength = parseInt(prompt("How many characters you want yor password to have? Min of 8 and max of 128 "));
+// Password limitations 
+  var passwordLength = parseInt(prompt("How many characters you want yor password to have? Min of 8 and max of 128 "));
 
   if (isNaN(passwordLength)){
-    window.alert("Please enter a number")
-    return false;
+    window.alert("Please enter a number");
+    return
   }
-
+// 
   if (passwordLength <8 || passwordLength > 128){
-    window.alert("Password length must be between 8 and 128")
-    return false;
+    window.alert("Password length must be between 8 and 128");
+    return
   }
 
-if (window.confirm("Would you like lowercase in your password?")){
+// Giving the user to choose the password character types  
+var useLower = window.confirm("Would you like lowercase in your password?");
+var useUpper = window.confirm("Would you like upperCase in your password?");
+var useNumbers = window.confirm("Would you like number in your password?");
+var useSpecChar = window.confirm("Would you like special characters in your password?");
+
+// The logical additions for the characters getting added to the empty array 
+if (useLower == true){
   passwordOptions = passwordOptions.concat(lowerCase);
 }
-if (window.confirm("Would you like upperCase in your password?")){
+if (useUpper == true){
   passwordOptions = passwordOptions.concat(upperCase);
 }
 
-if (window.confirm("Would you like number in your password?")){
+if (useNumbers == true){
   passwordOptions = passwordOptions.concat(numbers);
 } 
 
-if (window.confirm("Would you like special characters in your password?")){
+if (useSpecChar ==true){
   passwordOptions = passwordOptions.concat(specialChar);
 } 
 if (passwordOptions.length === 0){
-  passwordLength = passwordLength.concat(numbers)
+  passwordOptions = passwordOptions.concat(numbers)
 }
-
+//Checking the results of our if statement
 console.log(passwordOptions)
 
 // to generate the password
