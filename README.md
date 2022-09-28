@@ -18,5 +18,12 @@ Asks the number of characters the user is looking for.Uses an empty array to col
 Giving the user the option to choose the password character types. The logical additions for the characters getting added to the empty array randomly. 
 Checking the results of our if statement for loop.Generators password. 
 
+## Mock-Up
+
+The following image shows the web application's appearance and functionality:
+
+![The Password Generator application displays a red button to "Generate Password".](./Assets/03-javascript-homework-demo.png)
+
+
 - - -
 © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
